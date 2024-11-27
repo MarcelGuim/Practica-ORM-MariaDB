@@ -1,6 +1,6 @@
 package edu.upc.eetac.dsa.db.orm;
 import edu.upc.eetac.dsa.db.orm.model.Employee;
-import edu.upc.eetac.dsa.util.ObjectHelper;
+import edu.upc.eetac.dsa.db.orm.util.ObjectHelper;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -9,14 +9,15 @@ public class DBJDBC2 extends DBJDBC{
         Connection connection = DBUtils.getConnection();
 
         // SQL INJECTION
-        String theQuery = "INSERT INTO User (ID, lastName, firstName, address, city, password) VALUES (0, ?, ?, ?,?)";
+        String theQuery = "INSERT INTO users (ID, Name, Password, Correu, Money, Cobre) VALUES (0, ?, ?, ?,?,?)";
         // log.debug
 
         PreparedStatement statement1  =  connection.prepareStatement(theQuery);
-        statement1.setString(1, "McDonald's");
-        statement1.setString(2, ";DROP TABLES;");
-        statement1.setString(3, "PREPAREDLAddress");
-        statement1.setString(4, "DJKASJK");
+        statement1.setString(1, "Maraergaergcel");
+        statement1.setString(2, "1234");
+        statement1.setString(3, "marcel.guim@estudiantat.upc.edu");
+        statement1.setString(4, "5000");
+        statement1.setString(5, "80");
 
         // a = b / 0  - null.method();
 

@@ -1,8 +1,10 @@
-package edu.upc.eetac.dsa.util;
+package edu.upc.eetac.dsa.db.orm.util;
 
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
+import static org.hibernate.internal.util.ReflectHelper.findSetterMethod;
 
 public class ObjectHelper {
     public static String[] getFields(Object entity) {
@@ -22,18 +24,31 @@ public class ObjectHelper {
 
 
     public static void setter(Object object, String property, Object value) {
-        // Method // invoke
-        // property="name";
-        // value ="toni"
-        /*Employee e =
-                e.setName("toni")
-          */
+        try{
+            // Construir el nom del mètode "setter" (e.g., "Name" -> "setName")
+            String setterName = "set" + property.substring(0, 1).toUpperCase() + property.substring(1);
 
+            for (Method method : object.getClass().getMethods()) {
+                if (method.getName().equals(setterName) && method.getParameterCount() == 1) {
+                    method.invoke(object, value);
+                    return; // Sortir si es troba i executa correctament
+                }
+            }
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     public static Object getter(Object object, String property) {
-        // Method // invoke
-
-        return null;
+        try{
+            String getterName = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
+            Method method = object.getClass().getMethod(getterName);
+            return method.invoke(object);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
     }
 }

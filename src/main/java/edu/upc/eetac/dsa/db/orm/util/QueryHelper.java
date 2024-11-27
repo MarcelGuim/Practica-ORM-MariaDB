@@ -1,4 +1,4 @@
-package edu.upc.eetac.dsa.util;
+package edu.upc.eetac.dsa.db.orm.util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ public class QueryHelper {
         sb.append(entity.getClass().getSimpleName()).append(" ");
         sb.append("(");
 
-        String [] fields = edu.upc.eetac.dsa.util.ObjectHelper.getFields(entity);
+        String [] fields = edu.upc.eetac.dsa.db.orm.util.ObjectHelper.getFields(entity);
 
         sb.append("ID");
         for (String field: fields) {

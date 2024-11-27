@@ -2,7 +2,7 @@ package edu.upc.eetac.dsa.db.orm;
 
 import edu.upc.eetac.dsa.db.orm.model.*;
 
-import edu.upc.eetac.dsa.util.QueryHelper;
+import edu.upc.eetac.dsa.db.orm.util.QueryHelper;
 import org.junit.Assert;
 import org.junit.Test;
 
